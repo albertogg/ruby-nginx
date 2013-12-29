@@ -21,5 +21,36 @@ Una vez que se haya instalado todo en la maquina ingresar a la misma haciendo us
 `vagrant ssh` para posteriormente probar docker.
 
 ```sh
-$ docker pull ubuntu
+$ docker run -i -t ubuntu:12.04 /bin/bash
+```
+
+## Crear los contenedores de Codehero
+
+Para crear los contenedores de codehero debemos utilizar los *Dockerfile* que se encuentran
+en la carpeta de *nginx* y *ruby* respectivamente.
+
+Para crear el contenedor de nginx:
+
+```sh
+$ sudo docker build -t codehero/nginx /dir/a/el/nginx/Dockerfile/
+```
+
+Para crear el contenedor de Ruby:
+
+```sh
+$ sudo docker build -t codehero/ruby /dir/a/el/ruby/Dockerfile
+```
+
+## Iniciar los contenedores creados
+
+Para iniciar el container de *ruby con ssh* como servicio:
+
+```sh
+$ RUBY=$(sudo docker run -d -p 22222:22 codehero/ruby /usr/sbin/sshd -D)
+
+```
+Para iniciar el container de *nginx*:
+
+```sh
+$ NGINX=$(sudo docker run -d -p -volumes-from $RUBY 80:80 codehero/nginx)
 ```
