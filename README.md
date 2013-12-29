@@ -32,7 +32,7 @@ en la carpeta de *nginx* y *ruby* respectivamente.
 Para crear el contenedor de nginx:
 
 ```sh
-$ sudo docker build -t codehero/nginx /dir/a/el/nginx/Dockerfile/
+$ sudo docker build -t codehero/nginx /dir/a/el/nginx/Dockerfile
 ```
 
 Para crear el contenedor de Ruby:
@@ -47,8 +47,8 @@ Para iniciar el container de *ruby con ssh* como servicio:
 
 ```sh
 $ RUBY=$(sudo docker run -d -p 22222:22 codehero/ruby)
-
 ```
+
 Para iniciar el container de *nginx*:
 
 ```sh
