@@ -38,11 +38,12 @@ RUN rbenv global 2.0.0-p353
 
 # Install rbenv-gem-rehash to never rehash again.
 RUN git clone https://github.com/sstephenson/rbenv-gem-rehash.git /usr/local/rbenv/plugins/rbenv-gem-rehash
-# Set passsword environment variable.
-ENV password pass
 
 # Remove $PATH duplicates.
 ENV typeset -u PATH
+
+# Set passsword environment variable.
+ENV password pass
 
 # Use the password environment variable to set a password to root
 RUN echo "root:$password" | chpasswd
@@ -50,6 +51,6 @@ RUN echo "root:$password" | chpasswd
 # Share a volume/folder with other containers.
 VOLUME ["/var/www"]
 
-# Command to start the sshd daemon every time the container starts with -d option
+# Command to start the sshd daemon every time the container starts with -d flag
 # and without arguments.
 CMD ["/usr/sbin/sshd", "-D"]
