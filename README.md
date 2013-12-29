@@ -46,11 +46,11 @@ $ sudo docker build -t codehero/ruby /dir/a/el/ruby/Dockerfile
 Para iniciar el container de *ruby con ssh* como servicio:
 
 ```sh
-$ RUBY=$(sudo docker run -d -p 22222:22 codehero/ruby /usr/sbin/sshd -D)
+$ RUBY=$(sudo docker run -d -p 22222:22 codehero/ruby)
 
 ```
 Para iniciar el container de *nginx*:
 
 ```sh
-$ NGINX=$(sudo docker run -d -p -volumes-from $RUBY 80:80 codehero/nginx)
+$ NGINX=$(sudo docker run -d -volumes-from $RUBY -p 80:80 codehero/nginx)
 ```
