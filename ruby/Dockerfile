@@ -19,3 +19,5 @@ RUN echo "root:$password" | chpasswd
 
 # Share a volume/folder with other containers.
 VOLUME ["/var/www"]
+
+CMD ["/usr/sbin/sshd", "-D"]
