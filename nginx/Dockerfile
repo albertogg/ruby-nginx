@@ -1,6 +1,11 @@
 # -*- mode: sh -*-
 # vi: set ft=sh :
 
+##
+# Nginx container with daemon in foreground
+#
+# Docker version 0.7.2
+#
 FROM ubuntu:12.04
 MAINTAINER Alberto Grespan "alberto@codehero.co"
 
