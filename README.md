@@ -18,7 +18,7 @@ Posteriormente:
 $ vagrant up
 ```
 
-Ó
+o
 
 ```sh
 $ vagrant up --provision
@@ -34,6 +34,10 @@ $ docker run -i -t ubuntu:12.04 /bin/bash
 Si se encuentra todo instalado y docker funciona con el comando anterior podemos pasar
 a crear los contenedores de Codehero utilizando los `Dockerfiles`.
 
+> Cuando tengamos las imagenes oficiales listas y almacenadas en el [index.docker.io](http://index.docker.io)
+no hará falta bajar el contenedor de ubuntu:12.04 directamente; por el contrario se bajarán las imagenes
+de codehero directamente.
+
 ## Crear los contenedores de Codehero
 
 Para crear los contenedores de codehero debemos utilizar los *Dockerfile* que se encuentran
@@ -42,7 +46,7 @@ en la carpeta de *nginx* y *ruby* respectivamente.
 > Debemos recordar que dentro de *vagrant* podemos ver los archivos que se encuentran en el
 host machine dentro de la carpeta compartida `/vagrant`.
 
-*** Dentro de vagrant: ***
+***Dentro de vagrant:***
 
 Para crear el contenedor de nginx:
 
