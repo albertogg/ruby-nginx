@@ -1,0 +1,17 @@
+server {
+  listen 80; # listen on http (port 80)
+  server_name _; # Using wildcard, after pointing DNS to new ip.
+
+  location / {
+    root /var/www/codehero-jekyll;
+    index index.html;
+
+    # error 404 page
+    error_page 404 /404.html;
+
+    access_log /var/www/blog/access.log;
+    error_log /var/www/blog/error.log;
+
+    expires max;
+  }
+}
