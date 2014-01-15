@@ -3,7 +3,7 @@ server {
   server_name _; # Using wildcard, after pointing DNS to new ip.
 
   location / {
-    root /var/www/codehero-jekyll;
+    root /var/www/codehero-jekyll/_site;
     index index.html;
 
     # error 404 page
