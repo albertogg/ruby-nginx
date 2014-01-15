@@ -57,7 +57,7 @@ $ sudo docker build -t codehero/nginx /vagrant/nginx/Dockerfile
 Para crear el contenedor de Ruby:
 
 ```sh
-$ sudo docker build -t codehero/ruby /vagarnt/ruby/Dockerfile
+$ sudo docker build -t codehero/ruby /vagrant/ruby/Dockerfile
 ```
 
 ## Iniciar los contenedores creados
