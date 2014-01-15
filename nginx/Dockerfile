@@ -23,9 +23,13 @@ RUN apt-get update -y --fix-missing
 # Install latest nginx
 RUN apt-get -y install nginx
 
-# tell Nginx to stay foregrounded
+# Copy the new nginx.conf an rename the old one.
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
 ADD nginx.conf /etc/nginx/nginx.conf
+
+# Copy the codehero server block and symlink it.
+ADD codehero.co /etc/nginx/sites-available/codehero.co
+RUN ln -s /etc/nginx/sites-available/codehero.co /etc/nginx/sites-enabled/codehero.co
 
 # Expose port 80 in the container.
 EXPOSE 80
