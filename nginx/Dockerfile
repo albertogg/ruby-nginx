@@ -24,7 +24,8 @@ RUN apt-get update -y --fix-missing
 RUN apt-get -y install nginx
 
 # tell Nginx to stay foregrounded
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
+ADD nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80 in the container.
 EXPOSE 80
