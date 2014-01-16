@@ -51,13 +51,13 @@ host machine dentro de la carpeta compartida `/vagrant`.
 Para crear el contenedor de nginx:
 
 ```sh
-$ sudo docker build -t codehero/nginx /vagrant/nginx/Dockerfile
+$ sudo docker build -t codehero/nginx /vagrant/nginx
 ```
 
 Para crear el contenedor de Ruby:
 
 ```sh
-$ sudo docker build -t codehero/ruby /vagrant/ruby/Dockerfile
+$ sudo docker build -t codehero/ruby /vagrant/ruby
 ```
 
 ## Iniciar los contenedores creados
