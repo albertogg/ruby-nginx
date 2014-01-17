@@ -43,6 +43,9 @@ ADD nginx.conf /etc/nginx/nginx.conf
 ADD codehero.co /etc/nginx/sites-available/codehero.co
 RUN ln -s /etc/nginx/sites-available/codehero.co /etc/nginx/sites-enabled/codehero.co
 
+# Unlink the default server block.
+RUN unlink /etc/nginx/sites-enabled/default
+
 # Expose port 80 in the container.
 EXPOSE 80
 
