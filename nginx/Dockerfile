@@ -9,6 +9,18 @@
 FROM ubuntu:12.04
 MAINTAINER Alberto Grespan "alberto@codehero.co"
 
+# Update known packages.
+RUN apt-get update -y
+
+# Set the right encoding.
+RUN apt-get install -y language-pack-en
+ENV LANGUAGE en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
+RUN locale-gen en_US.UTF-8
+RUN dpkg-reconfigure locales
+
 # Install add-apt-repository
 RUN apt-get install -y python-software-properties
 
