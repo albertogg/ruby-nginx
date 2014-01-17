@@ -25,7 +25,7 @@ RUN apt-get install -y -q openssh-server
 RUN mkdir /var/run/sshd
 
 # Install some ruby build dependencies and git for rbenv and ruby-install.
-RUN apt-get install -y -q build-essential git-core zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt-dev
+RUN apt-get install -y -q build-essential python-dev git-core zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt-dev
 
 # Install rbenv
 RUN git clone https://github.com/sstephenson/rbenv.git /usr/local/rbenv
@@ -51,6 +51,19 @@ RUN rbenv global 2.0.0-p353
 
 # Install rbenv-gem-rehash to never rehash again.
 RUN git clone https://github.com/sstephenson/rbenv-gem-rehash.git /usr/local/rbenv/plugins/rbenv-gem-rehash
+
+# Copiar copiar las llaves ssh en su lugar.
+RUN mkdir -p /root/.ssh/
+ADD ssh /root/.ssh
+RUN touch /root/.ssh/known_hosts
+RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
+
+# Copiar el repositorio e instalar la aplicación.
+RUN git clone git@github.com:albertogg/codehero-jekyll.git -b actualizar-gemas /var/www/codehero-jekyll
+RUN echo "gem: --no-rdoc --no-ri" >> /root/.gemrc
+RUN gem install bundler
+RUN cd /var/www/codehero-jekyll && bundle
+RUN cd /var/www/codehero-jekyll && jekyll build
 
 # Remove $PATH duplicates.
 ENV typeset -u PATH
