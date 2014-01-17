@@ -62,6 +62,7 @@ ENV password pass
 RUN echo "root:$password" | chpasswd
 
 # Share a volume/folder with other containers.
+RUN mkdir -p /var/www/logs
 VOLUME ["/var/www"]
 
 # Command to start the sshd daemon every time the container starts with -d flag
