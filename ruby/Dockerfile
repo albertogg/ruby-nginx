@@ -60,10 +60,12 @@ RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
 # Copiar el repositorio e instalar la aplicación.
 RUN git clone git@github.com:albertogg/codehero-jekyll.git -b actualizar-gemas /var/www/codehero-jekyll
-RUN echo "gem: --no-rdoc --no-ri" >> /root/.gemrc
+RUN echo "gem: --no-rdoc --no-ri" > /root/.gemrc
 RUN gem install bundler
+
 RUN cd /var/www/codehero-jekyll && bundle
-RUN cd /var/www/codehero-jekyll && jekyll build
+RUN echo "ENV=production" > /var/www/codehero-jekyll/.env
+RUN cd /var/www/codehero-jekyll && rake server
 
 # Remove $PATH duplicates.
 ENV typeset -u PATH
