@@ -4,7 +4,7 @@ server {
 
   location / {
     root /var/www/codehero-jekyll/_site;
-    index index.html;
+    try_files $uri $uri/ $uri.html =404;
 
     # error 404 page
     # error_page 404 /404.html; # Uncomment when this page is available.
