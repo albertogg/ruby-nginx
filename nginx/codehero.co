@@ -6,6 +6,7 @@ server {
     root /var/www/codehero-jekyll/_site;
 
     rewrite ^/(authors.html$|authors/$) /authors permanent;
+    rewrite ^/(sobre-nosotros.html$|sobre-nosotros/$) /sobre-nosotros permanent;
 
     try_files $uri $uri/ $uri.html =404;
 
