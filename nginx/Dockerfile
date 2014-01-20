@@ -22,7 +22,7 @@ RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
 
 # Install add-apt-repository
-RUN apt-get install -y python-software-properties
+RUN apt-get install -y python-software-properties vim
 
 # Add universe repo and nginx ppa.
 RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"

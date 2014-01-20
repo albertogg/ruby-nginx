@@ -25,7 +25,7 @@ RUN apt-get install -y -q openssh-server
 RUN mkdir /var/run/sshd
 
 # Install some ruby build dependencies and git for rbenv and ruby-install.
-RUN apt-get install -y -q build-essential python-dev git-core zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt-dev
+RUN apt-get install -y -q build-essential python-dev git-core zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt-dev vim
 
 # Install rbenv
 RUN git clone https://github.com/sstephenson/rbenv.git /usr/local/rbenv
