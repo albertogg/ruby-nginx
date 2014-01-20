@@ -4,6 +4,9 @@ server {
 
   location / {
     root /var/www/codehero-jekyll/_site;
+
+    rewrite ^/(authors.html$|authors/$) /authors permanent;
+
     try_files $uri $uri/ $uri.html =404;
 
     # error 404 page
