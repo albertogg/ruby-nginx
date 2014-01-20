@@ -11,17 +11,9 @@ server {
     rewrite ^/(terminos-y-condiciones.html$|terminos-y-condiciones/$) /terminos-y-condiciones permanent;
     rewrite ^/(politica-de-privacidad.html$|politica-de-privacidad/$) /politica-de-privacidad permanent;
 
-    # series rewrites.
-    rewrite ^/series/(.*)\.html*$ /series/$1 permanent;
-    rewrite ^/series/(.*)/$ /series/$1 permanent;
-
-    # author rewrites.
-    rewrite ^/author/(.*)\.html*$ /author/$1 permanent;
-    rewrite ^/author/(.*)/$ /author/$1 permanent;
-
-    # cursos rewrites.
-    rewrite ^/category/(.*)\.html*$ /category/$1 permanent;
-    rewrite ^/category/(.*)/$ /category/$1 permanent;
+    # simplificar todos los rewrites en uno.
+    rewrite ^/(series|author|category)/(.*)\.html*$ /$1/$2 permanent;
+    rewrite ^/(series|author|category)/(.*)/$ /$1/$2 permanent;
 
     try_files $uri $uri/ $uri.html =404;
 
