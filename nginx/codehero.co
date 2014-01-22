@@ -11,9 +11,13 @@ server {
     rewrite ^/(terminos-y-condiciones.html$|terminos-y-condiciones/$) /terminos-y-condiciones permanent;
     rewrite ^/(politica-de-privacidad.html$|politica-de-privacidad/$) /politica-de-privacidad permanent;
 
-    # simplificar todos los rewrites en uno.
+    # simplificar todos los rewrites (series, author y category) en uno.
     rewrite ^/(series|author|category)/(.*)\.html*$ /$1/$2 permanent;
     rewrite ^/(series|author|category)/(.*)/$ /$1/$2 permanent;
+
+    # Acomodar el url particular de /series/index
+    rewrite ^/series/$ /series/index last;
+    if ($request_uri = /series/index) {  return 301 /series/;  }
 
     try_files $uri $uri/ $uri.html =404;
 
