@@ -59,6 +59,7 @@ RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
 RUN echo "gem: --no-rdoc --no-ri" > /root/.gemrc
+RUN gem install bundler
 
 # Remove $PATH duplicates.
 ENV typeset -u PATH
