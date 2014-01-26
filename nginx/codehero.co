@@ -7,6 +7,7 @@ server {
 
     # footer rewrites
     rewrite ^/(authors.html$|authors/$) /authors permanent;
+    rewrite ^/(search.html$|search/$) /search permanent;
     rewrite ^/(sobre-nosotros.html$|sobre-nosotros/$) /sobre-nosotros permanent;
     rewrite ^/(terminos-y-condiciones.html$|terminos-y-condiciones/$) /terminos-y-condiciones permanent;
     rewrite ^/(politica-de-privacidad.html$|politica-de-privacidad/$) /politica-de-privacidad permanent;
