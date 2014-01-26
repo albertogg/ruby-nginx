@@ -23,7 +23,7 @@ server {
     try_files $uri $uri/ $uri.html =404;
 
     # error 404 page
-    # error_page 404 /404.html; # Uncomment when this page is available.
+    error_page 404 /404.html; # Uncomment when this page is available.
 
     access_log /var/www/logs/access.log;
     error_log /var/www/logs/error.log;
