@@ -89,8 +89,10 @@ ADD startup-script.sh /var/www/cron/startup-script.sh
 
 # Add build script to crontab.
 RUN crontab /var/www/cron/cron-script.sh
+
+# Mount shared volume.
 VOLUME ["/var/www"]
 
 # Command to start the sshd daemon every time the container starts with -d flag
 # and without arguments.
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/bin/bash", "/var/www/cron/startup-script.sh"]
