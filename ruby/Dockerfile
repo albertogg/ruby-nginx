@@ -81,6 +81,11 @@ RUN apt-get install -y cron
 
 # Copy startup script to run cron and ssh daemons.
 RUN mkdir -p /var/www/cron
+
+# Copy scripts to the desired route.
+ADD build-script.sh /var/www/cron/build-script.sh
+ADD cron-script.sh /var/www/cron/cron-script.sh
+ADD startup-script.sh /var/www/cron/startup-script.sh
 VOLUME ["/var/www"]
 
 # Command to start the sshd daemon every time the container starts with -d flag
