@@ -75,6 +75,9 @@ RUN mkdir -p /var/www/logs
 
 # Create cron build log file.
 RUN touch /var/www/logs/cron-build.log
+
+# Install cron.
+RUN apt-get install -y cron
 VOLUME ["/var/www"]
 
 # Command to start the sshd daemon every time the container starts with -d flag
