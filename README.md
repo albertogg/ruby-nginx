@@ -1,75 +1,36 @@
-Primeros pasos en una imagen de Vagrant para probar Docker localmente y Docker.
+This is a **Ruby + Nginx Docker container with lots of goodies**. This container its mostly a base for later customization.
 
-## Dependencias
+## Dependencies
 
-- Virtualbox 4.3.4+ o VMware.
-- Vagrant 1.4.1+
+- Virtualbox 4.3.6+ o VMware ([ VB 4.3.10 has a bug](https://github.com/mitchellh/vagrant/issues/3341#issuecomment-39015570))
+- Vagrant 1.5.4+ ([1.5.3 has a small bug](https://github.com/mitchellh/vagrant/issues/3487))
 
-## Instalación de plugins
-Antes de correr o hacer un `vagrant up` debemos instalar el siguiente plugin:
+## Building the image locally
+
+I'm using Vagrant to build this custom Docker container locally. Before you `vagrat up` please install this the `vagrant-vbguest` plugin, if you already have, skip the next step.
 
 ```sh
 $ vagrant plugin install vagrant-vbguest
 ```
 
-Posteriormente:
+At this point you may start your new VM and let vagrant provision it, this may take a few minutes, so hold tight.
 
 ```sh
 $ vagrant up
 ```
 
-o
+Once the VM provision is complete you are ready to build this same image or any one you need.
+
+> If you find any error please open an issue.
+
+To create the same image just type the following command:
 
 ```sh
-$ vagrant up --provision
+$ sudo docker build -t albertogg/ruby-nginx-stack /vagrant/images/base
 ```
 
-Una vez que se haya instalado todo en la maquina ingresar a la misma haciendo uso del comando
-`vagrant ssh` para posteriormente probar docker.
+To run the container:
 
 ```sh
-$ docker run -i -t ubuntu:12.04 /bin/bash
-```
-
-Si se encuentra todo instalado y docker funciona con el comando anterior podemos pasar
-a crear los contenedores de Codehero utilizando los `Dockerfiles`.
-
-> Cuando tengamos las imagenes oficiales listas y almacenadas en el [index.docker.io](http://index.docker.io)
-no hará falta bajar el contenedor de ubuntu:12.04 directamente; por el contrario se bajarán las imagenes
-de codehero directamente.
-
-## Crear los contenedores de Codehero
-
-Para crear los contenedores de codehero debemos utilizar los *Dockerfile* que se encuentran
-en la carpeta de *nginx* y *ruby* respectivamente.
-
-> Debemos recordar que dentro de *vagrant* podemos ver los archivos que se encuentran en el
-host machine dentro de la carpeta compartida `/vagrant`.
-
-***Dentro de vagrant:***
-
-Para crear el contenedor de nginx:
-
-```sh
-$ sudo docker build -t codehero/nginx /vagrant/nginx
-```
-
-Para crear el contenedor de Ruby:
-
-```sh
-$ sudo docker build -t codehero/ruby /vagrant/ruby
-```
-
-## Iniciar los contenedores creados
-
-Para iniciar el container de *ruby con ssh* como servicio:
-
-```sh
-$ RUBY=$(sudo docker run -d -p 22222:22 codehero/ruby)
-```
-
-Para iniciar el container de *nginx*:
-
-```sh
-$ NGINX=$(sudo docker run -d -volumes-from $RUBY -p 80:80 codehero/nginx)
+$ sudo docker run -i -t albertogg/ruby-nginx-stack /bin/bash
 ```
