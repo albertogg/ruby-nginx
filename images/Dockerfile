@@ -4,7 +4,7 @@
 ##
 # Ruby and SSH container
 #
-# Docker version 0.7.2
+# Docker version 0.10.0
 #
 FROM ubuntu:12.04
 MAINTAINER Alberto Grespan "http://twitter.com/albertogg"
