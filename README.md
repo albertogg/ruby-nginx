@@ -32,11 +32,11 @@ Once the VM provision is complete you are ready to build this same image or any 
 To create the same image just type the following command:
 
 ```sh
-$ sudo docker build -t albertogg/ruby-nginx-stack /vagrant/images/base
+$ sudo docker build -t albertogg/ruby-nginx /vagrant/images/base
 ```
 
 To run the container:
 
 ```sh
-$ sudo docker run -i -t albertogg/ruby-nginx-stack /bin/bash
+$ sudo docker run -i -t albertogg/ruby-nginx /bin/bash
 ```
