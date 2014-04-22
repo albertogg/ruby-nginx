@@ -1,8 +1,14 @@
 This is a **Ruby + Nginx Docker container with lots of goodies**. This container its mostly a base for later customization.
 
+## Why this container?
+
+This container contains almost everything you need to put Ruby in production. To list a few: *imagemagick, git, cron, ssh, nginx, runit, monit, haproxy,* among others. It's based on the [discourse_docker](https://github.com/discourse/discourse_docker) base container.
+
+It doesn't have any database installed because that's meant to be done in another container that extends this one.
+
 ## Dependencies
 
-- Virtualbox 4.3.6+ o VMware ([ VB 4.3.10 has a bug](https://github.com/mitchellh/vagrant/issues/3341#issuecomment-39015570))
+- Virtualbox 4.3.6+ o VMware ([VB 4.3.10 has a bug](https://github.com/mitchellh/vagrant/issues/3341#issuecomment-39015570))
 - Vagrant 1.5.4+ ([1.5.3 has a small bug](https://github.com/mitchellh/vagrant/issues/3487))
 
 ## Building the image locally
