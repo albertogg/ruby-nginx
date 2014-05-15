@@ -8,6 +8,20 @@ This container contains almost everything you need to put Ruby in production. To
 
 It doesn't have any *database* installed because that's meant to be done in another container that extends this one.
 
+## Using this container
+
+This image has a repository in the [Docker index](https://index.docker.io/u/albertogg/ruby-nginx/) you can install it directly using the following command:
+
+```sh
+$ docker pull albertogg/ruby-nginx
+```
+
+The current *latest* version tag is: **2.2**
+
+```sh
+$ docker pull albertogg/ruby-nginx:2.2
+```
+
 ## Dependencies
 
 - Virtualbox 4.3.6+ o VMware ([VB 4.3.10 has a bug](https://github.com/mitchellh/vagrant/issues/3341#issuecomment-39015570))
