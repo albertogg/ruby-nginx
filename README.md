@@ -2,9 +2,11 @@ This is a **Ruby + Nginx Docker container with lots of goodies**. This container
 
 ## Why this container?
 
-This container contains almost everything you need to put Ruby in production. To list a few: *imagemagick, git, cron, ssh, nginx, runit, monit, haproxy,* among others. It's based on the [discourse_docker](https://github.com/discourse/discourse_docker) base container running Ruby 2.0.0-p451 and nginx 1.6.0 stable.
+This container contains almost everything you need to put Ruby in production. To list a few: *imagemagick, git, cron, ssh, nginx, runit, monit, haproxy,* among others. It's based on the [discourse_docker](https://github.com/discourse/discourse_docker) base container running Ruby 2.0.0-p481 and nginx 1.6.0 stable.
 
-It doesn't have any database installed because that's meant to be done in another container that extends this one.
+**edit:** There is a new base image that is almost the same but with Ruby 2.1.2
+
+It doesn't have any *database* installed because that's meant to be done in another container that extends this one.
 
 ## Dependencies
 
