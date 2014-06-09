@@ -16,10 +16,10 @@ This image has a repository in the [Docker index](https://index.docker.io/u/albe
 $ docker pull albertogg/ruby-nginx
 ```
 
-The current *latest* version tag is: **2.2**
+The current *latest* version tag is: **2.2.1**
 
 ```sh
-$ docker pull albertogg/ruby-nginx:2.2
+$ docker pull albertogg/ruby-nginx:2.2.1
 ```
 
 ## Dependencies
